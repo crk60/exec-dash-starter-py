@@ -82,15 +82,42 @@ print("VISUALIZING THE DATA...")
 
 # adapted from: https://plot.ly/python/getting-started/#initialization-for-offline-plotting
 
+titles=df.sorted_by_price['product'].tolist()
+values=df.sorted_by_price['sales price']
+
 import plotly
 import plotly.graph_objs as go
 
 plotly.offline.plot({
-    "data": [go.Bar(x=[sorted_by_price], 
+    "data": [go.Bar(x=titles,y=values,
         orientation = 'h')],
     "layout": go.Layout(title="Top Selling Products")
     }, auto_open=True)
 
+# print(sorted_by_price)
+
+# import plotly.plotly as py
+# import cufflinks as cf
+# import pandas as pd
+# import numpy as np
+
+# cf.set_config_file(offline=False, world_readable=True, theme='ggplot')
+
+# df = pd.DataFrame(np.random.rand(10, 4), columns=['products', 'B', 'C', 'D'])
+# row = df.ix[5]
+# row.iplot(kind='bar', filename='cufflinks/bar-chart-row')
+
+#https://github.com/madelinenlee/OPIM-243-chart-exercise/blob/master/OPIM_243_chart_exercise.py
 
 
-# py.iplot(data, filename='horizontal-bar')
+# labels = []
+# values = []
+
+# for i in range(0, len(sorted_by_price)):
+#     labels.append(sorted_by_price[i]['products'])
+#     values.append(sorted_by_price[i]['sales price'])
+
+# layout = {'title': 'Industry Market Share'}
+# trace = go.Bar(labels=labels, values=values, title='Industry Market Share')
+
+# # py.iplot(data, filename='horizontal-bar')
