@@ -2,6 +2,16 @@
 
 # TODO: import some modules and packages here
 
+import os
+import pandas as pds
+import csv
+
+
+read_csv('C:\Users\ckirshe\Documents\GitHub\exec-dash-starter-py\data')
+
+
+
+
 # TODO: write some Python code here to produce the desired functionality...
 
 print("-----------------------")
@@ -9,6 +19,16 @@ print("MONTH: March 2018")
 
 print("-----------------------")
 print("CRUNCHING THE DATA...")
+
+
+x= input("Please input the desired month. Please format as 'sales-YYYMM'")
+filename = ('x'+".csv")
+#https://docs.python.org/3/library/csv.html
+with open(filename, newline='') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
+
 
 print("-----------------------")
 print("TOTAL MONTHLY SALES: $12,000.71")
@@ -21,3 +41,15 @@ print("  3) etc.")
 
 print("-----------------------")
 print("VISUALIZING THE DATA...")
+
+#https://plot.ly/python/horizontal-bar-charts/
+import plotly.plotly as py
+import plotly.graph_objs as go
+
+data = [go.Bar(
+            x=[20, 14, 23],
+            y=['giraffes', 'orangutans', 'monkeys'],
+            orientation = 'h'
+)]
+
+py.iplot(data, filename='horizontal-bar')
