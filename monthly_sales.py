@@ -24,13 +24,13 @@ x= input("Please input the desired month. Please format as 'sales-YYYMM'")
 filename = x + '.csv'
 #reference to heip's sales reporting code for help
 #filepath = os.path.j("\data", filename)
-# os.chdir('C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data')
-print(os.getcwd())
-# #https://docs.python.org/3/library/csv.html
-#  with open(filename, newline='') as f:
-#         reader = csv.reader(f)
-#         for row in reader:
-#             print(row)
+os.chdir('C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data')
+
+#https://docs.python.org/3/library/csv.html
+with open(filename, newline='') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
 
 
 
