@@ -15,26 +15,33 @@ import csv
 
 
 
+while True:
+    try:
+        x = input("Please input the desired month. Please format as 'YYYYMM': ")
+        filename = 'sales-'+ x + '.csv'
+   
+        #reference to heip's sales reporting code for help
+        #filepath = os.path.j("\data", filename)
 
-x= input("Please input the desired month. Please format as 'YYYMM'")
-filename = 'sales-'+ x + '.csv'
-#reference to heip's sales reporting code for help
-#filepath = os.path.j("\data", filename)
+        os.chdir('C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data')
+        location = 'C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data\\'
+            # https://stackoverflow.com/questions/33503993/read-in-all-csv-files-from-a-directory-using-python
+        filepath = os.path.join(location, filename)
 
-os.chdir('C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data')
-location = 'C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data\\'
-    # https://stackoverflow.com/questions/33503993/read-in-all-csv-files-from-a-directory-using-python
-filepath = os.path.join(location, filename)
+        #https://docs.python.org/3/library/csv.html
+        # with open(filename, newline='') as f:
+        #     reader = csv.reader(f)
+        #     for row in reader:
+        #         print(row)
 
-#https://docs.python.org/3/library/csv.html
-# with open(filename, newline='') as f:
-#     reader = csv.reader(f)
-#     for row in reader:
-#         print(row)
+        #Group and sum products sold
+        #https://stackoverflow.com/questions/39922986/pandas-group-by-and-sum
+        df = pds.read_csv(filepath)
+    except FileNotFoundError:
+        print("No match found to month input!")
+    else:
+        break
 
-#Group and sum products sold
-#https://stackoverflow.com/questions/39922986/pandas-group-by-and-sum
-df = pds.read_csv(filepath)
 
 #
 def month_lookup(month):
@@ -89,6 +96,7 @@ labels = ['${:,.2f}'.format(v) for v in values]
 import plotly
 import plotly.graph_objs as go
 
+#https://plot.ly/python/bar-charts/
 plotly.offline.plot({
     "data": [go.Bar(
                 x=labels,
