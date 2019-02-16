@@ -16,6 +16,7 @@ import csv
 
 
 while True:
+    #https://www.w3schools.com/python/python_try_except.asp
     try:
         x = input("Please input the desired month. Please format as 'YYYYMM': ")
         filename = 'sales-'+ x + '.csv'
@@ -107,7 +108,7 @@ plotly.offline.plot({
                 marker = dict(color = 'rgb(80,161,248)', line = dict(color = 'rgb(255,255,255)', width = 1.5)),
                 opacity = 0.9
                 )],
-    "layout": go.Layout(title="Top Selling Products")
+    "layout": go.Layout(title="Top Selling Products", xaxis = dict(tickformat = "$.2"))
     }, auto_open=True)
 
 # print(sorted_by_price)
