@@ -24,8 +24,8 @@ while True:
         #reference to heip's sales reporting code for help
         #filepath = os.path.j("\data", filename)
 
-        os.chdir('C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data')
-        location = 'C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data\\'
+        #os.chdir('C:\\Users\\ckirshe\\Documents\\GitHub\\exec-dash-starter-py\\data')
+        location = os.getcwd() + '\\data\\'
             # https://stackoverflow.com/questions/33503993/read-in-all-csv-files-from-a-directory-using-python
         filepath = os.path.join(location, filename)
 
