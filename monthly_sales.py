@@ -82,15 +82,23 @@ print("VISUALIZING THE DATA...")
 
 # adapted from: https://plot.ly/python/getting-started/#initialization-for-offline-plotting
 
-titles=df.sorted_by_price['product'].tolist()
-values=df.sorted_by_price['sales price']
+titles=sorted_by_price['product'].tolist()
+values=sorted_by_price['sales price']
+labels = ['${:,.2f}'.format(v) for v in values]
 
 import plotly
 import plotly.graph_objs as go
 
 plotly.offline.plot({
-    "data": [go.Bar(x=titles,y=values,
-        orientation = 'h')],
+    "data": [go.Bar(
+                x=labels,
+                y=titles,
+                orientation = 'h',
+                text = labels,
+                textposition = 'auto',
+                marker = dict(color = 'rgb(80,161,248)', line = dict(color = 'rgb(255,255,255)', width = 1.5)),
+                opacity = 0.9
+                )],
     "layout": go.Layout(title="Top Selling Products")
     }, auto_open=True)
 
